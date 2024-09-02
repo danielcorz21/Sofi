@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>SOFI - UDES</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+    th {
+      color: blue;
+    }
+
+    /* Make the header fixed */
+    #header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    /* Add some padding to the body to prevent content from being hidden behind the fixed header */
+    body {
+      padding-top: 80px;
+      /* Adjust the height based on your header's height */
+    }
+
+    /* Table styling */
+    .table-container {
+      overflow-x: auto;
+      max-width: 100%;
+      padding-top: 20px;
+      /* Adjust based on your header height */
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      /* Fix the column width */
+    }
+
+    th,
+    td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      white-space: nowrap;
+      /* Prevent text wrapping */
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Optional: Alternate row colors */
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    /* Button styling */
+    .btn-modify {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .btn-modify:hover {
+      background-color: #0056b3;
+    }
+
+    /* Button styling */
+    .btn-delete {
+      background-color: #fd0606;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .btn-modify:hover {
+      background-color: #fd0606;
+    }
+
+    /* Estilos para el modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 8px;
+}
+
+/* Estilos para el título del modal */
+.modal-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: center; /* Centrar el texto del título */
+}
+.modal-header h2 {
+    text-align: center;
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+
+/* Estilos para el cuerpo del modal */
+.modal-body {
+  padding: 10px 0;
+}
+
+/* Estilos para los campos del modal */
+.modal-body label {
+  display: inline-block;
+  width: 30%; /* Ancho de las etiquetas (ajustar según necesidad) */
+  text-align: right; /* Alinear texto a la derecha */
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.modal-body input {
+  width: 60%; /* Ancho de los inputs (ajustar según necesidad) */
+  padding: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+/* Estilos para el pie del modal */
+.modal-footer {
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+  text-align: right;
+}
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .modal-header {
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .modal-body {
+      padding: 10px 0;
+    }
+
+    .modal-footer {
+      border-top: 1px solid #ddd;
+      padding-top: 10px;
+      text-align: right;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+      <h1 class="logo"><a href=""> S O F I </a> = > Libro de Ventas </h1>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li>
+            <form action="/baselogeo" method="post" style="margin: 0;">
+              <button type="submit" class="nav-link scrollto active"
+                style="background: none; border: none; padding: 0; font: inherit; color: darkblue; cursor: pointer;">Inicio</button>
+            </form>
+          </li>
+          <li>
+            <form action="/dcPerfil" method="post" style="margin: 0;">
+              <button type="submit" class="nav-link scrollto active"
+                style="background: none; border: none; padding: 0; font: inherit; color: darkblue; cursor: pointer;">Mi
+                Negocio</button>
+            </form>
+          </li>
+          <li>
+            <form action="/" method="post" style="margin: 0;">
+              <button type="submit" class="nav-link scrollto active"
+                style="background: none; border: none; padding: 0; font: inherit; color: darkblue; cursor: pointer;">Cerrar
+                Sesión</button>
+            </form>
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Services Section ======= -->
+  <section id="documents-section" class="table-container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Código Documento</th>
+          <th>Descripción</th>
+          <th>Resolución DIAN</th>
+          <th>Número de Resolución</th>
+          <th>Fecha de Inicio</th>
+          <th>Vigencia</th>
+          <th>Fecha de Fin</th>
+          <th>Prefijo</th>
+          <th>Consecutivo Inicial</th>
+          <th>Consecutivo Final</th>
+          <th>Manejo AIU</th>
+          <th>Retenciones</th>
+          <th>Cuenta Contable</th>
+          <th>Autoretenciones</th>
+          <th>Cuenta Contable 1</th>
+          <th>Tipo de Impresión</th>
+          <th>Activo</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="documents-table-body">
+        <!-- Aquí se agregarán las filas de la tabla -->
+      </tbody>
+    </table>
+  </section>
+  <!-- End Services Section -->
+
+  <!-- ======= Modal Section ======= -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+      </div>
+      <h2 style="text-align: center;">Modificar Documento</h2>
+      <h2> </h2>
+      <div class="modal-body" id="modal-body">
+        <!-- Aquí se mostrarán los campos del documento -->
+      </div>
+      <div class="modal-footer">
+        <button id="saveChangesBtn" class="btn btn-modify">Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal Section -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a target="_blank" href="https://udes.edu.co">UDES</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a target="_blank"
+                  href="https://bucaramanga.udes.edu.co/estudia/pregrados/contaduria-publica">CONTADURIA PUBLICA</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Ubicación</h4>
+            <p>
+              Calle 70 N° 55-210, <br>
+              Bucaramanga, <br>
+              Santander <br><br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Contactenos</h4>
+            <p>
+              <strong>Teléfono:</strong> (607) 6516500 <br>
+              <strong>Email:</strong> notificacionesudes@udes.edu.co <br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h3>Redes Sociales</h3>
+            <p>A través de los siguientes link´s puedes seguirnos.</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright 2023 <strong><span> UNIVERSIDAD DE SANTANDER </span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Creado por iniciativa del programa de <a
+          href="https://bucaramanga.udes.edu.co/estudia/pregrados/contaduria-publica">Contaduría Pública</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Custom JS to fetch and display data -->
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const response = await fetch('/api/mlventas');
+        const data = await response.json();
+
+        console.log(data); // Verifica que los datos se estén recibiendo correctamente
+
+        const tableBody = document.getElementById('documents-table-body');
+        const modal = document.getElementById('myModal');
+        const modalBody = document.getElementById('modal-body');
+        const saveChangesBtn = document.getElementById('saveChangesBtn');
+        const closeModal = document.getElementsByClassName('close')[0];
+
+        // Filtrar datos y asegurarse de que "codigo_documento" esté definido y no vacío
+        const filteredData = data.filter(item => {
+          return item.codigo_documento && typeof item.codigo_documento === 'string' && item.codigo_documento.trim() !== '';
+        });
+
+        console.log(filteredData); // Verifica los datos filtrados en la consola
+
+        // Iterar sobre los datos filtrados y agregar filas a la tabla
+        filteredData.forEach(item => {
+          const row = document.createElement('tr');
+
+          // Crear celdas para cada campo de datos
+          const fields = [
+            'codigo_documento', 'descripcion_documento', 'resolucion_dian', 'numero_resolucion',
+            'fecha_inicio', 'vigencia', 'fecha_fin', 'prefijo', 'consecutivo_inicial',
+            'consecutivo_final', 'manejo_aiu', 'retenciones', 'cuenta_contable',
+            'autoretenciones', 'cuenta_contable1', 'tipo_impresion', 'activo'
+          ];
+
+          fields.forEach(field => {
+            const cell = document.createElement('td');
+            cell.textContent = item[field] || ''; // Manejo de campos vacíos
+            row.appendChild(cell);
+          });
+
+          // Crear el botón de modificar
+          const modifyButton = document.createElement('button');
+          modifyButton.classList.add('btn', 'btn-modify');
+          modifyButton.textContent = 'Modificar';
+          modifyButton.addEventListener('click', () => {
+            // Mostrar el modal y cargar los datos del documento seleccionado
+            modal.style.display = 'block';
+            modalBody.innerHTML = ''; // Limpiar el contenido anterior del modal
+
+            fields.forEach(field => {
+              const label = document.createElement('label');
+              label.textContent = `${field.replace('_', ' ')}: `;
+              const input = document.createElement('input');
+              input.type = 'text';
+              input.value = item[field] || ''; // Puede modificar los valores según los datos del documento
+              input.dataset.field = field; // Almacenar el nombre del campo como dataset para facilitar la edición
+              const br = document.createElement('br');
+              modalBody.appendChild(label);
+              modalBody.appendChild(input);
+              modalBody.appendChild(br);
+            });
+          });
+
+          // Crear el botón de eliminar
+          const deleteButton = document.createElement('button');
+          deleteButton.classList.add('btn', 'btn-delete');
+          deleteButton.textContent = 'Eliminar';
+          deleteButton.addEventListener('click', () => {
+            if (confirm(`¿Está seguro de que desea eliminar el archivo con código ${item.codigo_documento}?`)) {
+              fetch(`/dcFactVenta/${item._id}`, {
+                method: 'DELETE',
+              })
+                .then(response => {
+                  if (response.ok) {
+                    alert('Documento eliminado exitosamente');
+                    // Aquí puedes implementar la lógica para actualizar la interfaz después de la eliminación
+                  } else {
+                    alert('Hubo un error al eliminar el documento');
+                  }
+                });
+            }
+          });
+
+          // Crear una celda para los botones
+          const actionCell = document.createElement('td');
+          actionCell.appendChild(modifyButton);
+          actionCell.appendChild(deleteButton);
+          row.appendChild(actionCell);
+
+          // Agregar la fila a la tabla
+          tableBody.appendChild(row);
+        });
+
+        // Función para cerrar el modal
+        closeModal.onclick = function () {
+          modal.style.display = 'none';
+        }
+
+        // Función para guardar cambios en el modal
+        saveChangesBtn.onclick = function () {
+                const inputs = modalBody.querySelectorAll('input');
+                const updatedData = {};
+
+                inputs.forEach(input => {
+                    const field = input.dataset.field;
+                    updatedData[field] = input.value;
+                });
+
+                fetch(`/dcFactVentaPut/${item._id}`, {
+                    method: 'PUT',
+                    body: JSON.stringify(updatedData),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('Error al actualizar el documento');
+                }).then(data => {
+                    console.log('Datos actualizados correctamente:', data);
+                    // Aquí puedes implementar la lógica para actualizar la interfaz después de guardar los cambios
+                }).catch(error => {
+                    console.error('Error al actualizar el documento:', error);
+                });
+
+                modal.style.display = 'none'; // Cerrar el modal después de guardar los cambios
+            }
+         
+        // Función para cerrar el modal si el usuario hace clic fuera del área del modal
+        window.onclick = function (event) {
+          if (event.target === modal) {
+            modal.style.display = 'none';
+          }
+        }
+
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    });
+  </script>
+</body>
+
+</html>

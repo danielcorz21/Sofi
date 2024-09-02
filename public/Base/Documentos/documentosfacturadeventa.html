@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>SOFI - UDES</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex align-items-center">
+  <div class="container d-flex align-items-center justify-content-between">
+      <h1 class="logo"><a href=""> S O F I </a> = > Software Financiero </h1>
+      <nav id="navbar" class="navbar">
+          <ul>
+              <li>
+                  <form action="/baselogeo" method="post" style="margin: 0;">
+                      <button type="submit" class="nav-link scrollto active" style="background: none; border: none; padding: 0; font: inherit; color: #fff; cursor: pointer;">Inicio</button>
+                  </form>
+              </li>
+              <li>
+                  <form action="/dcPerfil" method="post" style="margin: 0;">
+                      <button type="submit" class="nav-link scrollto active" style="background: none; border: none; padding: 0; font: inherit; color: darkblue; cursor: pointer;">Mi Negocio</button>
+                  </form>
+              </li>
+              <li>
+                  <form action="/" method="post" style="margin: 0;">
+                      <button type="submit" class="nav-link scrollto active" style="background: none; border: none; padding: 0; font: inherit; color: darkblue; cursor: pointer;">Cerrar Sesión</button>
+                  </form>
+              </li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+  </div>
+</header><!-- End Header -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container" data-aos="fade-up">
+        <form action="/dcFactVenta" method="post">
+
+        <div class="section-title">
+          <br><br><br><br><br>
+          <h2>FACTURA DE VENTA</h2>
+          <p>Para crear un nuevo tipo de documento diligencie los campos a continuación:</p>
+          <p>(Los campos marcados con * son obligatorios)</p>
+        </div>
+        <div class="mb-3" style="display:none">
+          <label for="exampleFormControlInput1" class="form-label">Usuario</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="UsuarioA" >
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Codigo de documento</label>
+          <input type="number" class="form-control" id="exampleFormControlInput1" name="codigo_documento" required>
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Descripción documento</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="descripcion_documento">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Resolución DIAN?</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="resolucion_dian">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Numero de resolución</label>
+          <input type="number" class="form-control" id="exampleFormControlInput1" name="numero_resolucion">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Fecha inicio</label>
+          <input type="date" class="form-control" id="exampleFormControlInput1" name="fecha_inicio">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Vigencia(meses)</label>
+          <input type="number" class="form-control" id="exampleFormControlInput1" name="vigencia">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Fecha finalización</label>
+          <input type="date" class="form-control" id="exampleFormControlInput1" name="fecha_fin">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Prefijo</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="prefijo">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Consecutivo inicial</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="consecutivo_inical">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Consecutivo final</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="consecutivo_final">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Manejo de AIU</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="manejo_aiu">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Retenciones</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="retenciones" placeholder="">
+        </div>
+
+      <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Cuenta contable</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="cuenta_contable" placeholder="">
+        </div>
+
+      <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Autoretenciones</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="autoretenciones" placeholder="">
+        </div>
+
+      <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Cuenta contable</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="cuenta_contable1" placeholder="">
+        </div>
+
+      <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Tipo de impresión</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="tipo_impresion" placeholder="">
+        </div>
+
+      <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Activo</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="activo" placeholder="">
+        </div>
+
+        <form >
+          <!-- Tus campos de formulario aquí -->
+          <input class="btn btn-primary" type="submit" class="guardar" value="Guardar">
+      </form>
+        <!--<button type="button" class="btn btn-primary" >Guardar</button>-->
+
+        <br>
+      </form>
+
+      <form action="/mmdocumentos" method="post">
+        <!-- Tus campos de formulario aquí -->
+        <input class="btn btn-primary" style="background-color: #ff0000" type="submit" class="volver" value="Volver">
+    </form>
+      </div>
+    
+    </section><!-- End Services Section -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a target="_blank" href="https://udes.edu.co">UDES</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a target="_blank" href="https://bucaramanga.udes.edu.co/estudia/pregrados/contaduria-publica">CONTADURIA PUBLICA</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Ubicación</h4>
+            <p>
+              Calle 70 N° 55-210, <br>
+              Bucaramanga, <br>
+              Santander <br><br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Contactenos</h4>
+            <p>
+              <strong>Teléfono:</strong> (607) 6516500 <br>
+              <strong>Email:</strong> notificacionesudes@udes.edu.co <br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h3>Redes Sociales</h3>
+            <p>A través de los siguientes link´s puedes seguirnos.</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright 2023 <strong><span> UNIVERSIDAD DE SANTANDER </span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Creado por iniciativa del programa de <a href="https://bucaramanga.udes.edu.co/estudia/pregrados/contaduria-publica">Contaduría Pública</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

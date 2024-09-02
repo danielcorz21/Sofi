@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULARIO DE INGRESO</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="form">
+        <div class="leftside">
+            <img src="./Img/welcome.png">
+            <h1>SOFI UDES</h1>
+        </div>
+        <div class="rightside">
+            <h2>INICIO</h2>
+            <div class="input-container">
+                <form action="/inicios" method="post">
+                    <div class="input">
+                        <i class="fa fa-user"></i>
+                        <input type="text" name="username" required placeholder="Usuario">
+                    </div>
+                    <div class="input">
+                        <i class="fa fa-lock"></i>
+                        <input type="password" name="password" required placeholder="Contraseña">
+                    </div>
+                    <button onclick="login()" class="login">INICIO</button>
+                </form>
+
+                <p>Otros medios</p>
+                <div class="social-items">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-google"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                </div>
+                <p>¿No tienes cuenta?</p>
+                <form action="/registrarse" method="post">
+                    <input type="submit" class="login" value="REGISTRATE">
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="login.js"> </script>
+</body>
+</html>

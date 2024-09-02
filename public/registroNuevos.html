@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULARIO DE INGRESO</title>
+    <link rel="stylesheet" href="/styleRegistro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="form">
+        <div class="leftside">
+            <img src="/Img/welcome.png">
+            <h1>SOFI UDES</h1>
+        </div>
+        <div class="rightside">
+            <h2>REGISTRO</h2>
+
+                <form action="/registrarses" method="post">
+                    <div class="input-container">
+                        <div class="input">
+                            <i class="fa fa-user"></i>
+                            <input type="text" name="nombre_completo"  required placeholder="Nombre Completo">
+                        </div>
+                        <div class="input">
+                            <i class="fa fa-user"></i>
+                            <input type="text" name="username"  required placeholder="Usuario">
+                        </div>
+                        <div class="input">
+                            <i class="fa fa-envelope"></i>
+                            <input type="email" name="correo"  required placeholder="Correo">
+                        </div>
+                        <div class="input">
+                            <i class="fa fa-lock"></i>
+                            <input type="password" name="password"  required placeholder="Contraseña">
+                        </div>
+                        <div class="input">
+                            <i class="fa fa-lock"></i>
+                            <input type="password" name="repassword"  required placeholder="Repertir Contraseña ">
+                        </div>
+                        <form action="/inicio" method="post">
+                            <!-- Tus campos de formulario aquí -->
+                            <input type="submit" class="login" value="REGISTRARSE">
+                        </form>
+                </form>
+
+                <form action="/inicio" method="post">
+                    <!-- Tus campos de formulario aquí -->
+                    <input style="background-color: #ff0000" type="submit" class="login" value="TENGO CUENTA">
+                </form>
+                <p>Otros medios</p>
+                <div class="social-items">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-google"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
